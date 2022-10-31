@@ -1,0 +1,98 @@
+Video1:
+
+**Vue.js
+
+-Pronounced "View" or "View J S"
+-A JavaScript front-end framework (java script library that runs in your browser
+-Runs in the browser
+-Front end frameworks have become increasingly popular in recent years
+        -Web pages are getting more and more complex; more functionality,
+        more user interaction
+        -Move functionality from the server to the client (browser)
+            -Less work for server
+            -More responsive web pages for client
+        -"Single Page Web Apps"
+-Front end frameworks (in general) are for creating structure in complex JavaScript
+
+
+**Front End Frameworks***
+
+-The most popular is ReactJS
+    -It has a huge feature set and can be used for large, complex websites
+    -But it's not very beginner friendly - just building a hello world app on
+    your computer takes a lot of setup
+-Vue is much more beginner-friendly
+    -We can build a hello world app in 5 minutes
+-Vue was heavily inspired by React
+-Learning Vue is useful by itself, and many of the concepts transfer to other
+frameworks
+
+https://www.treewebsolutions.com/articles/top-front-end-frameworks-in-2020-year-19
+
+
+***Vue.js Concepts: MVVM – Model, View, ViewModel architecture**
+
+-Model = data the web page needs. May be part of the page, and/or include data
+from a database server, accessed via API calls
+-View = the web page – what the user sees
+-ViewModel = connects the view and the model, contains application logic
+    -Directives to control what is displayed in the view, based on the state
+    of the application's data
+    -DOM listeners receive messages from the view, may update data in the model
+
+https://vuejs.org/guide/introduction.html
+https://v2.vuejs.org/
+
+***Vue.js Concepts**
+
+-Data binding - connecting data in the model to the view - display data from
+the model on the page, using directives
+-Vue is Reactive – page updates automatically in response to changes in data.
+    -If the page is displaying data from the model, if the data changes, the
+    page will change too
+    -Data in input elements can be bound to the model too - the user types in data,
+    the data in the model is updated - two-way data binding
+
+**Code examples**
+https://github.com/claraj/vue-week-1-examples
+
+**Install Vue Dev Tools https://github.com/vuejs/vue-devtools **
+
+-Extension to add Vue debugging tools to Chrome dev tools
+-Use this link, there are two different versions, you need this newer one that works with Vue 3
+-https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg/related?hl=en
+-Firefox: there is a Vue Add-on but as of March 2020 the Firefox addon doesn't seem to work with Vue 3, awaiting a new release
+
+**Other examples:**
+You can tell if a website uses Vue.js you can see the V at the top of chrome browser
+
+Fathom
+Louis Vuitton
+Behance
+livestorm
+
+**Data**
+    -Data is a function
+    -Returns an object
+    -The object's properties are reactive
+    -Vue will monitor them, and if they change, anything that
+    depends on them will change too
+
+***Vue Events***
+    -In your Vue instance, add a methods attribute
+    -methods contains a list of function definitions
+    -Add a method (very similar to a function) called
+    addExclamation
+    -addExclamation modifies the message property
+    -Note that Vue data must be referenced with this.propertyName
+
+**Computed Properties**
+    -When resetting the message, we need to re-use the original value
+    -Using data in two places is a possible cause of errors.
+    If the data needs to be changed, we must  remember to change it in two places
+    -Calculate a new value based on one or more data properties
+   -Here, we can calculate the message to display from the original
+   message and the number of exclamation points
+
+
+

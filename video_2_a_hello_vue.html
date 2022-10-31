@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+
+<!--1-->
+    <div id="app">
+
+<!--All the parts of the page we want Vue to manage will go in this div-->
+<!--4-->
+        <h1>Hello vue</h1>
+
+<!--        this message vv in the curly braces will be replaced by the message in the vue instance below-->
+        <p>{{message}}</p>
+
+<!--        <p>This class is {{thisClass}}</p>-->
+<!--        5-->
+<!--     In order to associate the click event generated in the button
+         with a directive from vue.js
+         Use: v-on:click and name a method that we would like to
+         call when the click event happens (below addExclamation)-->
+
+        <button v-on:click="addExclamation">Add !</button>
+<!--        8a-->
+        <button v-on:click="removeExclamation">Remove !s</button>
+    </div>
+
+    <script>
+<!--        where the Vue app will be created:-->
+//this vv is a method call,
+// have to explain what is this app,
+// what data can it store,
+// what can it do:
+//**Most vue apps manage data
+//2
+//created a "vue instance"
+//The app will manage the "model" below and the div above, as well as what the
+//user will see.
+    let app = Vue.createApp({
+        //this is called "The model"
+        data() { //this function will return what the app will manage
+            return {
+                message: 'hi',
+                // thisClass: 'Web Programming'
+                //7q. figure out how to max out the number of exclamation points that will be added.
+                //7a vvv
+                maxExclamationPoints: 10,
+                exclamationPoints:  0,
+                //create first piece of data:
+            }
+        //    6 vvv
+        },
+        methods: {
+            addExclamation() {
+                //7c.
+                if (this.exclamationPoints < this.maxExclamationPoints) {
+                    //7b.
+                    this.exclamationPoints++
+                    //when defining a method, you have to use this.
+                    this.message = this.message + '!'
+                } else {
+                    alert('You have reached the max exclamation points!')
+                }
+            },
+            removeExclamation() {
+                this.message = 'hi'
+                this.exclamationPoints = 0
+            }
+        }
+})
+    //3
+    //vvv tells vue to put the app info into the above div (css selector (with # sign))
+    app.mount('#app')
+//after creating vue app, tells our vue instance will manage everything inside the above div
+
+    </script>
+
+
+</body>
+</html>

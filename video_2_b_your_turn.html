@@ -1,0 +1,60 @@
+<!--Your Turn-->
+
+<!--Add a Clear Exclamation Points button to the template-->
+<!--Create a method that resets the message to the original value,
+removing all the exclamation points-->
+<!--Connect the click event to the new method-->
+
+<!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+
+
+<div id="app">
+
+  <h1>Hello vue</h1>
+
+  <p>{{message}}</p>
+
+  <button v-on:click="addExclamation">Add !</button>
+  <button v-on:click="removeExclamationPoints">Remove !</button>
+</div>
+
+<script>
+
+  let app = Vue.createApp({
+    el: '#app',
+    data() {
+      return {
+        message: 'hi',
+        maxExclamationPoints: 10,
+        exclamationPoints:  0,
+      }
+    },
+    methods: {
+      addExclamation() {
+        if (this.exclamationPoints < this.maxExclamationPoints) {
+          this.exclamationPoints++
+          this.message = this.message + '!'
+        } else {
+          alert('You have reached the max exclamation points!')
+        }
+      },
+      removeExclamationPoints(){
+        this.message = 'hi'
+        this.exclamationPoints = 0
+    }
+  }
+  })
+   app.mount('#app')
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+
+
+<div id="app">
+
+  <h1>Hello vue</h1>
+
+  <p>Original message: {{message}}</p>
+
+  <p>Added Exclamation Points: {{messageWithExclamationPoints}}</p>
+
+  <button v-on:click="addExclamation">Add !</button>
+  <button v-on:click="removeExclamationPoints">Remove !</button>
+</div>
+
+<script>
+
+  let app = Vue.createApp({
+       data() {
+      return {
+        message: 'hi',
+        maxExclamationPoints: 10,
+        exclamationPoints:  0,
+      }
+    },
+    methods: {
+      addExclamation() {
+        if (this.exclamationPoints < this.maxExclamationPoints) {
+          this.exclamationPoints++
+        } else {
+          alert('You have reached the max exclamation points!')
+        }
+      },
+      removeExclamationPoints(){
+        this.exclamationPoints = 0
+      }
+    },
+  //  find the end of the methods property (^^just above)
+  //  this vv is a "computed property"
+    computed:{
+      //this vvv will calculate what the message with exclamation points
+      // will be based on the number of original exclamation points in
+      //the original message:
+      messageWithExclamationPoints(){
+        let messageWithPoints = this.message
+        for (let x = 0; x < this.exclamationPoints; x++) {
+          messageWithPoints = messageWithPoints + '!'
+        }
+        return messageWithPoints
+      }
+    }
+  })
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>
