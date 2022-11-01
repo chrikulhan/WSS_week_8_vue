@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://unpkg.com/vue@next"></script>
+<!--add some styles here: (or use a style sheet, but this is simple)-->
+    <style>
+        td,th{
+            width: 25%;
+            text-align: center
+        }
+    </style>
 
 </head>
 <body>
@@ -25,10 +32,12 @@
         <tr>
 <!--            inputting table data (td) with product name {{name}}-->
             <td>{{ name }}</td>
-            <td>{{ unit price }}</td>
-<!--            TODO come back and fill in this VVV -->
-<!--            paused video 3, 2:46pm to go home-->
-            <td></td>
+            <td>{{ unitPrice }}</td>
+<!--            below will be where the quantity input will be:-->
+            <td>
+                <input type = "number" v-model="quantity">
+            </td>
+            <td>${{ total }}</td>
 
         </tr>
     </table>
@@ -36,7 +45,37 @@
     </div>
 
 <script>
-
+    let app = Vue.createApp({
+        data(){
+            return{
+                name:'Hat',
+                quantity: 1,
+                unitPrice: 2.49
+            }
+        },
+        //create a computed variable here (after the vue data is present)
+        //so it updates when the data is updated.
+        //could have MANY computed properties, this only has one.
+        computed: {
+            //total has to return whatever you are computing:
+            //if you are referring to any vue properties you have to
+            //say "this<dot>vueproperty" (see below)
+            total(){
+                let totalPrice = this.quantity * this.unitPrice
+            //    if you want to make sure there are only 2 decimal places
+            //    (because that is all that is needed for $$ but also because
+            //    it messes with formatting:
+                let formattedPrice = totalPrice.toFixed(2)
+            //    when you refer to a created a variable WITHIN a
+                //    computed property such as ^^totalPrice, you return
+            //    just the variable name NOT this.variablename
+            //     return totalPrice //not using this anymore after formatted price was created:
+                return formattedPrice
+            }
+        }
+    })
+    app.mount('#app')
+//    ^^^associated with the above div id="app" above
 
 </script>
 
