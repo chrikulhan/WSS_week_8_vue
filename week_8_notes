@@ -94,5 +94,54 @@ livestorm
    -Here, we can calculate the message to display from the original
    message and the number of exclamation points
 
+***Forms and input with the v-model directive
+   -Create a new page
+   -Copy head, Vue script element from the previous webpage
+
+ ***Test out your app
+   -When you type, the text entered is displayed in the p element
+   -v-model directive instructs Vue to bind the contents of the input to
+   the data property name
+   -And, v-model adds an input event listener to update the name property
+   as the user types
+   -Result: text updated as you type
+   -Two-way data binding – if Vue modified the name data, the value in the
+   input would change too (you can try this in Vue dev tools!)
+
+***Conditional rendering with v-if directive
+   -Page looks messy when the user hasn't entered their name yet
+   -Use v-if to only render the paragraph if there is a name entered
+   -Check the dev tools – there's no p element until a name is entered
+   -Can use a string in a JS condition – empty strings are false,
+   any other string is true
+
+***Conditional rendering with v-if
+   -Use v-if to only render the paragraph if there is a name entered
+   -Check the Elements tab of dev tools
+   -There's no p element unless a name is entered
+
+***Empty string is false?
+-Seven values in JavaScript evaluate to false when used in an if statement –
+these are falsy values
+false, 0, 0n (that's zero n), null, undefined, NaN and empty strings
+
+    Everything else is true (or truthy)
+
+***v-else
+
+-What if you want to display different elements, based on a condition?
+-An element with v-else directive must be immediately after the v-if
+-There's also v-else-if https://v3.vuejs.org/guide/conditional.html
+
+
+***A clear button
+-Vue can modify data properties used with v-model
+-Notice how data in the template changes; observe in Vue dev tools
+
+
+
+
+
+
 
 
