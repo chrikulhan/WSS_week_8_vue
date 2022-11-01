@@ -1,0 +1,96 @@
+<!--copied from 2_c_computed_property.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1>Hello Vue Forms</h1>
+
+        <label for="name">Please enter your name: <br></label>
+<!--        v-model is a template used in vue and the data is called name:-->
+<!--        v-model sets up 2 way data binding:
+                1. as the text is typed in, it is moved onto the page
+                (used the change event listener automatically when you
+                use v-model with an input)
+                2.if the vue app were to modify the name, the html will change
+                (Can see that if you are using devtools vue tools, you can
+                type in the vue tools, click save and then what you typed will
+                show up on the webpage in html.
+                -->
+        <input v-model="name" id="name">
+        <!--        <p>Your name is {{ name }}</p>-->
+
+<!--do conditional rendering of "your name is" so it doesn't show up unless
+there is a name input:-->
+<!--        1. add a v-if paragraph to my directive tag:-->
+<!--        -strings can be truthy or falsy, so if it's empty, it's falsy,
+            if it has letters in it, it's truthy-->
+
+<!--        ****-->
+<!--        <p v-if="name">-->
+<!--            Your name is {{ name }}-->
+<!--        </p>-->
+<!--        ****-->
+
+<!--&lt;!&ndash;        only create the conditional coding if the name is longer than 2 letters&ndash;&gt;-->
+<!--        <p v-if="name.length > 2">-->
+<!--            Your name is {{ name }}-->
+<!--        </p>-->
+
+<!--&lt;!&ndash;     You can use v-else statements if the opposite of the if statment is true-->
+<!--            **v-else has to be RIGHT AFTER the v-if statement:&ndash;&gt;-->
+<!--        <p v-else>-->
+<!--            Waiting for user input-->
+<!--        </p>-->
+<!--        -->
+<!--        ***-->
+
+
+<!--        Change to divs instead of paragraphs:-->
+<!--C-->
+        <!--        only create the conditional coding if the name is longer than 2 letters-->
+        <div v-if="name.length > 2">
+            Your name is {{ name }}
+
+<!-- add a clear button if user has typed their name:
+            -->
+            <button v-on:click="clear">Clear Input</button>
+        </div>
+
+        <!--     You can use v-else statements if the opposite of the if statment is true
+                    **v-else has to be RIGHT AFTER the v-if statement:-->
+        <div v-else>
+            Waiting for user input
+        </div>
+
+    </div>
+
+<script>
+    let app = Vue.createApp({
+        //data () is a function
+        data(){
+            return{
+                name: '' //set to an empty string
+            //    this name ^^ is binding the name to the {{name}} from above.
+            }
+        },
+        methods: {
+            clear() {
+                this.name = ''
+            }
+        }
+    })
+
+    app.mount('#app')
+
+
+</script>
+
+</body>
+</html>
