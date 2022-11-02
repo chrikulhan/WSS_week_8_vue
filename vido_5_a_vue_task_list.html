@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+<!--add a form to create a new To do task:-->
+    <h1>Hello Vue Loops</h1>
+
+    <div id="app">
+
+        <label for="task">Please enter your to do task:</label>
+        <input id="task" v-model="newTask">
+        <!--be sure to create "newTask" for^^^ to use in the script-->
+        <!--add a button vvv, using v-on:click with a method: "addTask"-->
+        <button v-on:click="addTask">Add Task</button>
+
+<!--    template here-->
+<!--    {{ taskList }}  shows data, but not in a nice way-->
+<!--    make an unordered list using v-for to loop through the array:-->
+<!--make an unordered list <ul>-->
+        <ul>
+<!--        li elements are "list elements"-->
+<!--        have one li element for each element in my task list:-->
+<!--        use v-for, using *arbitrary name* (task) in
+*same name as in data property* taskList-->
+<!--        this will result in looping over each item in the array-->
+
+            <li v-for="task in taskList">{{ task }}</li>
+        </ul>
+
+    </div>
+
+<script>
+
+    let app = Vue.createApp({
+        data() {
+            return {
+            //    create "newTask" the user will input:
+                newTask: '',
+            //    set a data property to be an array:
+
+            //    remove example data so user can create their own list:
+            //     taskList: ['water plants', 'feed cats', 'shovel sidewalk']
+                taskList: []
+            }
+        },
+        methods: {
+        //    add an "addTask" to this method place so that the method
+        //    can be added when the button is clicked:
+            addTask() {
+            //    what do we need to do? We need to read what is in the form
+            //    how does vue KNOW what is in the form?
+            //    it knows because of what is in the method:
+            //    from above: <input id="task" v-model="newTask">
+                this.taskList.push(this.newTask)
+            // in order to clear the input after the user has clicked
+            // on the button to add a task:
+                this.newTask = '' //this is an empty string that will clear the input.
+            }
+        },
+   })
+    app.mount('#app')
+
+</script>
+
+</body>
+</html>

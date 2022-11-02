@@ -138,6 +138,17 @@ false, 0, 0n (that's zero n), null, undefined, NaN and empty strings
 -Vue can modify data properties used with v-model
 -Notice how data in the template changes; observe in Vue dev tools
 
+video 5
+vue things we've used:
+1. v-model- used to connect to parts of code
+conditions:
+2. v-if
+3. v-else
+4. v-for (used to repeat drawing or rendering HTML once for each
+    element in an array (for example)
+
+If we have a list of data or lots of types of data:
+
 
 
 
