@@ -1,0 +1,9 @@
+What does this Vue warning message mean? Can you safely ignore it?  (no)
+What causes it, and how do you fix it?  Write an answer in your own words.
+
+**The vue warning message means that there is something
+defined in the <div id="app"> section that was not addressed
+in the let app = Vue.createApp({ section.
+
+Basically, the template was created in the html portion, but
+the guts weren't properly directed in the vue.js portion.
